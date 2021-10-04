@@ -36,23 +36,36 @@ let initialState = {
     categories: ["shoes", "clothes", "food", "electronics"],
     initial: availableCategories[3],
 };
-export default (state = initialState.initial, action) => {
+export default (state = initialState, action) => {
+    console.log("categories.jsx export RAN");
     let { type, payload } = action;
     switch (type) {
         case "CHANGE-CATEGORY":
-            return availableCategories.map((category) => {
-                if (category.category === payload.category) {
-                    return category;
+            console.log("CHANGE-CATEGORY RAN");
+            let neededIdx = undefined;
+            availableCategories.find((data, idx) => {
+                console.log(`^v^v^ at idx ${idx} ${payload} === ${data.category} > ${payload === data.category}`);
+                if (payload === data.category) {
+                    neededIdx = idx;
+                    return true;
                 }
-                return category;
             });
+            if (neededIdx === undefined) {
+                return initialState;
+            }
+            console.log({
+                ...initialState,
+                initial: availableCategories[neededIdx],
+            });
+            return {
+                ...initialState,
+                initial: availableCategories[neededIdx],
+            };
+        case "RUN":
+            console.log("RUN RAAAAN");
+            return state;
         default:
+            console.log("default RAN");
             return state;
     }
-};
-
-import changeCategory from "./actions/changeCategory";
-
-export let actions = {
-    changeCategory,
 };

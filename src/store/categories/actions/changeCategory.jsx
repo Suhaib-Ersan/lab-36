@@ -1,6 +1,6 @@
 export const changeCategory = (newCategory) => {
-  return {
-      type: "CHANGE-CATEGORY",
-      payload: newCategory,
-  };
+    return {
+        type: "CHANGE-CATEGORY",
+        payload: newCategory,
+    };
 };

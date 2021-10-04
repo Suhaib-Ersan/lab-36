@@ -1,23 +1,27 @@
 import { connect } from "react-redux";
-import { actions } from "../../store/index";
-let { changeCategory } = actions;
+import { changeCategory } from "../../store/categories/actions/changeCategory";
 
 import "./categories.scss";
-function Categories(props) {
+const Categories = (props) => {
     return (
         <div className="categoriesContainer">
             {props.categoriesArr.map((category) => {
-                return <a href="">{category}</a>;
+                console.log("categoriesArr >>> ", props.categoriesArr);
+                return (
+                    <button key={category} onClick={() => props.changeCategory(category)} type="button">
+                        {category}
+                    </button>
+                );
             })}
         </div>
     );
-}
+};
 
 const mapStateToProps = (state) => ({
-    categoriesArr: state.categories,
+    categoriesArr: state.categories.categories,
 });
 
-const mapDispatchToProps = { increment, disable, reset };
+const mapDispatchToProps = { changeCategory };
 
 // const mapDispatchToProps = {
 //     increment: () => dispatch(increment()),
