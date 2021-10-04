@@ -8,9 +8,9 @@ const Categories = (props) => {
             {props.categoriesArr.map((category) => {
                 console.log("categoriesArr >>> ", props.categoriesArr);
                 return (
-                    <button key={category} onClick={() => props.changeCategory(category)} type="button">
+                    <div key={category} onClick={() => props.changeCategory(category)} type="button">
                         {category}
-                    </button>
+                    </div>
                 );
             })}
         </div>

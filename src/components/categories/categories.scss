@@ -1,16 +1,23 @@
 .categoriesContainer {
-  margin-top: 1rem;
-  > button {
-    font-size: large;
-    font-weight: 500;
-    margin-right: 1rem;
+    margin-top: 1rem;
 
-    text-decoration: none;
+    display: flex;
 
-    cursor: pointer;
+    > div {
+        font-size: large;
+        font-weight: 500;
+        padding: 0.35rem 2rem;
+        cursor: pointer;
 
-    // &:hover {
-    //   background-color: rgb(194, 194, 194);
-    // }
-  }
+        border-right: 2px rgba(0, 0, 0, 0.137) solid;
+        background-color: rgba(204, 204, 204, 0);
+
+        transition: 0.3s;
+        &:hover {
+          background-color: rgba(204, 204, 204, 0.281);
+        }
+    }
+    div:last-child {
+      border-right:none;
+    }
 }

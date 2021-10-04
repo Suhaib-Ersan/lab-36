@@ -34,7 +34,7 @@ let availableCategories = [
 ];
 let initialState = {
     categories: ["shoes", "clothes", "food", "electronics"],
-    initial: availableCategories[3],
+    chosenCategory: availableCategories[3],
 };
 export default (state = initialState, action) => {
     console.log("categories.jsx export RAN");
@@ -53,13 +53,9 @@ export default (state = initialState, action) => {
             if (neededIdx === undefined) {
                 return initialState;
             }
-            console.log({
-                ...initialState,
-                initial: availableCategories[neededIdx],
-            });
             return {
                 ...initialState,
-                initial: availableCategories[neededIdx],
+                chosenCategory: availableCategories[neededIdx],
             };
         case "RUN":
             console.log("RUN RAAAAN");
