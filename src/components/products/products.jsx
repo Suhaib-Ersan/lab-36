@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { Card, CardActions, CardContent, Button, Typography, CardMedia, Box } from "@mui/material";
 
+import { addItem } from "../../store/cart/actions/add"
+
 import "./products.scss";
 const Products = (props) => {
     return (
@@ -22,7 +24,7 @@ const Products = (props) => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button size="small">Add to cart</Button>
+                                <Button onClick={() => props.addItem(product)} size="small">Add to cart</Button>
                             </CardActions>
                         </Card>
                     );
@@ -36,4 +38,6 @@ const mapStateToProps = (state) => ({
     productsArr: state.categories.chosenCategory,
 });
 
-export default connect(mapStateToProps)(Products);
+const mapDispatchToProps = { addItem };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
